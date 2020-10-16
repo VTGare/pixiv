@@ -1,4 +1,4 @@
-module github.com/everpcpc/pixiv
+module github.com/VTGare/pixiv
 
 go 1.13
 
