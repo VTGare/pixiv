@@ -10,7 +10,7 @@ import (
 	"path/filepath"
 	"time"
 
-	cf "github.com/cardigann/go-cloudflare-scraper"
+	cf "github.com/VTGare/go-cloudflare-scraper"
 	"github.com/dghubble/sling"
 )
 
