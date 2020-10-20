@@ -10,6 +10,7 @@ import (
 	"path/filepath"
 	"time"
 
+	cf "github.com/cardigann/go-cloudflare-scraper"
 	"github.com/dghubble/sling"
 )
 
@@ -84,8 +85,11 @@ func genClientHash(clientTime string) string {
 
 func auth(params *authParams) (*authInfo, error) {
 	clientTime := time.Now().Format(time.RFC3339)
-	s := sling.New().Base("https://oauth.secure.pixiv.net/").Set("User-Agent", "foo").Set("X-Client-Time", clientTime).Set("X-Client-Hash", genClientHash(clientTime))
 
+	t, _ := cf.NewTransport(http.DefaultTransport)
+	c := http.Client{Transport: t}
+
+	s := sling.New().Client(&c).Base("https://oauth.secure.pixiv.net/").Set("User-Agent", "foo").Set("X-Client-Time", clientTime).Set("X-Client-Hash", genClientHash(clientTime))
 	res := &loginResponse{
 		Response: &authInfo{
 			User: &Account{},
