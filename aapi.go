@@ -17,7 +17,7 @@ type AppPixivAPI struct {
 }
 
 func NewApp() *AppPixivAPI {
-	s := sling.New().Base(apiBase).Set("User-Agent", "foo").Set("App-Version", "7.6.2").Set("App-OS-VERSION", "12.2").Set("App-OS", "ios")
+	s := sling.New().Base(apiBase).Set("User-Agent", "PixivIOSApp/7.6.2 (iOS 12.2; iPhone9,1)").Set("App-Version", "7.6.2").Set("App-OS-VERSION", "12.2").Set("App-OS", "ios")
 	return &AppPixivAPI{sling: s}
 }
 

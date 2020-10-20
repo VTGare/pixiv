@@ -89,7 +89,7 @@ func auth(params *authParams) (*authInfo, error) {
 	t, _ := cf.NewTransport(http.DefaultTransport)
 	c := http.Client{Transport: t}
 
-	s := sling.New().Client(&c).Base("https://oauth.secure.pixiv.net/").Set("User-Agent", "foo").Set("X-Client-Time", clientTime).Set("X-Client-Hash", genClientHash(clientTime))
+	s := sling.New().Client(&c).Base("https://oauth.secure.pixiv.net/").Set("User-Agent", "PixivIOSApp/7.6.2 (iOS 12.2; iPhone9,1)").Set("X-Client-Time", clientTime).Set("X-Client-Hash", genClientHash(clientTime))
 	res := &loginResponse{
 		Response: &authInfo{
 			User: &Account{},
